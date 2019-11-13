@@ -1,0 +1,68 @@
+/*
+** PERSONAL PROJECT, 2019
+** 2_pow_computer
+** File description:
+** 2 powers computer reading functions
+*/
+
+#include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include "../include/my.h"
+
+static uint get_number(char *str)
+{
+    int i;
+    char *number = NULL;
+    uint nb = 0;
+
+    if (!str)
+        return (0);
+    if (my_strlen(str) < 5)
+        return (0);
+    i = my_strlen(str) - 2;
+    for (; i && str[i] >= '0' && str[i] <= '9'; i--);
+    number = my_cut_str(str, i + 1, my_strlen(str) - 2);
+    nb = my_atou(number);
+    free(number);
+    return (nb);
+}
+
+static uint get_nth(char *str)
+{
+    char *n_th = NULL;
+    uint nth = 0;
+
+    if (!str)
+        return (0);
+    if (my_strlen(str) < 5)
+        return (0);
+    n_th = my_cut_str(str, 4, 16);
+    nth = my_atou(n_th);
+    free(n_th);
+    return (nth == 0 ? 0 : nth - 1);
+}
+
+uint read_last_line(int id)
+{
+    uint response;
+    FILE *stream = fopen("calculations_2pow.txt", "r");
+    char *buff = NULL;
+    size_t buf = 0;
+    char *buffer = NULL;
+    ssize_t ret_v = 0;
+
+    if (!stream)
+        return (id == 1 ? -1 : 1);
+    while (ret_v != END_OF_FILE) {
+        if (buffer != NULL)
+            free(buffer);
+        if (buff != NULL)
+            buffer = strdup(buff);
+        ret_v = getline(&buff, &buf, stream);
+    }
+    response = (id == 1) ? get_nth(buffer) : get_number(buffer);
+    free2(buff, buffer);
+    fclose(stream);
+    return (response);
+}
