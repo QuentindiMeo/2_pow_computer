@@ -14,5 +14,5 @@ This way, you can navigate through the calculations you wanted to get.<br>
 Have fun!<br>
 <br>
 <br>
-<b>Work still in progress, some more optimization can be made</b><br>
+<b>Work still uncomplete, some more optimization can be made on the calculating method.</b><br>
 <i>If you want new features to be included, feel free to let me know!</i>
