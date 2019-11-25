@@ -28,7 +28,6 @@ static void help2(void)
     "\033[4mNUM\033[0m\n\t\tFind and print the \033[4mNUM\033[0mth power of 2."
     "  Using this will deny\n\t\tall other parameter.\n\n\t\033[1m-S"
     "\033[0m \033[4mNUM\033[0m, \033[1m--start\033[0m=\033[4mNUM\033[0m\n\t\t"
-//    "\033[1mNOT IMPLEMENTED YET\033[0m\n\t\t"
     "Start computing the powers of 2 at \033[4mNUM\033[0m.\n\n\tAn invalid par"
     "ameter will automatically  set the associated option to\n\tdefault. You c"
     "an quit the program by hitting CTRL+C.\n\n   "
